@@ -519,8 +519,8 @@ class DeepCGH(object):
             return Gauss
         
         def circle_mask(shape):
-            radius=485
-            #for 20X/0.25 objective
+            NA = 1
+            radius=numpy.arcsin(NA/self.n)*self.f/self.ps
             location=(shape[0]//2+1,shape[1]//2+1)
             img = np.zeros(shape[:-1], dtype=np.float32)
             rr, cc = circle(location[0], location[1], radius, shape=img.shape)
