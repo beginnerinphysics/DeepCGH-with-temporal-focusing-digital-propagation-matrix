@@ -107,8 +107,8 @@ class DeepCGH_Datasets(object):
         star=(self.shape[-1]-1)/2*self.layer
         img1=np.zeros((self.shape[0],self.shape[1]))
         for k in range(self.shape[-1]):
-            for l in range(self.shape[1]):
-                for m in range(self.shape[-1]):
+            for l in range(self.shape[0]):
+                for m in range(self.shape[1]):
                     if sample1[l,m,k]<0.2:
                         sample1[l,m,k]=0
             img1+=sample1[:,:,k] #疊成第一個矩陣
