@@ -106,12 +106,12 @@ class DeepCGH_Datasets(object):
         sample1=sample
         star=(self.shape[-1]-1)/2*self.layer
         img1=np.zeros((self.shape[0],self.shape[1]))
-        for k in range(self.shape[-1]):
-            for l in range(self.shape[0]):
-                for m in range(self.shape[1]):
+        for l in range(self.shape[0]):
+            for m in range(self.shape[1]):
+                for k in range(self.shape[-1]):
                     if sample1[l,m,k]<0.2:
                         sample1[l,m,k]=0
-            img1+=sample1[:,:,k] #疊成第一個矩陣
+                    img1[l,m]+=sample1[l,m,k] #疊成第一個矩陣
         for i in range(self.shape[0]):
             for j in range(self.shape[1]):
                 for k in range(self.shape[-1]):
